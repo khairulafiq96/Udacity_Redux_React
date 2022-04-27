@@ -1,6 +1,7 @@
 import React , { Component } from 'react'
 import {connect} from 'react-redux'
 import { Redirect } from 'react-router-dom';
+import styles from '../styles/style.module.css'
 
 class Leaderboard extends Component {
     render(){
@@ -17,7 +18,7 @@ class Leaderboard extends Component {
                     {leaderData.map((user)=>(
                         <li key={user.id}>
                             <div>
-                                <img src={user.avatarURL} alt={`Avatar of ${user.userName}`}></img>
+                                <img className={styles.profilePic} src={user.avatarURL} alt={`Avatar of ${user.userName}`}></img>
                                 <br></br>
                                 {user.userName}
                                 <br></br>

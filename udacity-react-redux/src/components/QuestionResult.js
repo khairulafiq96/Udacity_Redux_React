@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import { Redirect } from "react-router-dom";
 
+import styles from '../styles/style.module.css'
+
 class QuestionResult extends Component {
 
     render(){
@@ -27,10 +29,11 @@ class QuestionResult extends Component {
             <div>
                 <br></br>
                 <img
+                    className={styles.profilePic}
                     src={users[question.author].avatarURL}
                     alt={`Avatar of ${users[question.author].name}`}
-                    className="avatar-img"
                 />
+
                 <br></br>
                 Question : {users[question.author].name} wants to know...
                 <br></br>

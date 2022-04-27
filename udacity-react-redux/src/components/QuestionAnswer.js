@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { handleSaveQuestionAnswer } from '../actions/common';
 import { Redirect, withRouter } from "react-router-dom";
 
+import styles from '../styles/style.module.css'
+
 
 class QuestionAnswer extends Component {
 state = {
@@ -41,6 +43,7 @@ handleVote = (e) => {
         return (
             <div>
                  <img
+                    className={styles.profilePic}
                     src={users[questions[id].author].avatarURL}
                     alt={`Avatar of ${users[questions[id].author].name}`}
                  />

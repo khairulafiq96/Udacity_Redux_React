@@ -10,6 +10,8 @@ import NotFound from './NotFound';
 import { handleInitialData } from '../actions/common';
 import { connect } from 'react-redux'
 
+import styles from '../styles/style.module.css'
+
 
 
 import {
@@ -36,7 +38,7 @@ class App extends Component{
     return(
       <Router>
       <Fragment>
-      <div className='App'>
+      <div className={styles.center}>
         {!signedInUser ? (  <div>
                               <Switch>
                                 <Route component={SignIn} />

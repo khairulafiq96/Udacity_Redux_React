@@ -2,6 +2,8 @@ import { element } from "prop-types";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import styles from '../styles/style.module.css'
+
 class Question extends Component {
   render() {
     const {question} = this.props;
@@ -20,7 +22,7 @@ class Question extends Component {
     return (
       <div>
           <div>
-            <img src={this.props.authorPic} ></img>
+            <img className={styles.profilePic} src={this.props.authorPic} ></img>...
             {this.props.author} wants to know.....
           </div>
           {testVal()}

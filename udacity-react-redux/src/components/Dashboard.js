@@ -6,18 +6,48 @@ import Question from './Question'
 import { Link } from "react-router-dom";
 
 class Dashboard extends Component{
+  state = {
+    tab : "unanswered"
+  }
 
+ myhandleTab =  (value) => {
+
+    let myTab;
+
+    //console.log(value)
+
+    if (value === "unanswered"){
+      myTab = "unanswered"
+    } else if (value === "answered") {
+      myTab = "answered"
+    }
+
+
+    this.setState(() => ({
+      tab: myTab,
+    }));
+  };
+
+
+  
 
   render(){
 
     const {answeredArr, unansweredArr,signedInUser} = this.props
-
+    
     return(
      <div>
           <div>
             <br></br>
+            <button onClick={()=> this.myhandleTab("unanswered")}> Unanswered</button>
+            <button onClick={()=> this.myhandleTab("answered")}> Answered</button>
             <br></br>
-            Unanswered Questions
+            <br></br>
+          </div>
+      
+        {this.state.tab === "unanswered" ? 
+        (<div>
+             Unanswered Questions
               <ul>
                 {unansweredArr && unansweredArr.map((question) =>(
                   <li key={question.id}>
@@ -39,9 +69,9 @@ class Dashboard extends Component{
                   
                 ))}
               </ul>
-          </div>
-
-          <div>
+          </div>):
+          
+          (<div>
             Answered Questions
               <ul>
                 {answeredArr && answeredArr.map((question) =>(
@@ -60,6 +90,9 @@ class Dashboard extends Component{
                 ))}
               </ul>
           </div>
+) }
+
+
 
          
      </div>
